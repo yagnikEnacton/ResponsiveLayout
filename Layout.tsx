@@ -3,7 +3,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-import {Dimensions, StyleSheet, Text, View} from 'react-native';
+import {Button, Dimensions, StyleSheet, Text, View} from 'react-native';
 const {height, width} = Dimensions.get('window');
 console.log('height', height);
 console.log('width', width);
@@ -17,6 +17,7 @@ const Layout = () => {
       <View style={styles.header}>
         <Text style={styles.headerText}>Header</Text>
       </View>
+      <Button title="click me"></Button>
 
       {/* Body */}
       <View style={styles.body}>
