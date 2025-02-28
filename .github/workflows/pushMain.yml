@@ -23,12 +23,23 @@ jobs:
         
       - name: Lint
         run : npx eslint 
+        
+      - name: Cache Gradle Wrapper
+        uses: actions/cache@v2
+        with:
+          path: ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-wrapper-${{ hashFiles('gradle/wrapper/gradle-wrapper.properties') }}
 
-      - name: Install gradlew
-        run : sudo apt install gradle -y
-        
-      - name: Make gradlew executable
-        run: chmod +x android/gradlew
-        
-      - name: build release apk
-        run : ./android/gradlew assembleRelease
+      - name: Cache Gradle Dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.gradle/caches
+          key: ${{ runner.os }}-gradle-caches-${{ hashFiles('gradle/wrapper/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-caches-
+      - name: Make Gradlew Executable
+        run: cd android && chmod +x ./gradlew
+
+      - name: Build Android 
+        run: |
+          cd android && ./gradlew assembleDebug
