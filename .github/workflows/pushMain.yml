@@ -27,8 +27,9 @@ jobs:
       - name: Install gradlew
         run : sudo apt install gradle -y
         
-      - name: Permission to execute
-        run : chmod +x gradlew
+      - name: Make gradlew executable
+        run: chmod +x android/gradlew
+
         
       - name: open android 
         run: cd android
