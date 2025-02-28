@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: List APK directory
-        run: pwd
+        run: ls /home/runner/work/ResponsiveLayout/ResponsiveLayout
       - name: Checkout Repository
         uses: actions/checkout@v2
 
