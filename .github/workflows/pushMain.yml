@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: List APK directory
-        run: ls -l /usr/bin/bash/root
+        run: pwd
       - name: Checkout Repository
         uses: actions/checkout@v2
 
