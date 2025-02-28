@@ -28,4 +28,4 @@ jobs:
         run: cd android
         
       - name: build release apk
-        run : ./gradlew assembleRelease
+        run : gradlew assembleRelease
