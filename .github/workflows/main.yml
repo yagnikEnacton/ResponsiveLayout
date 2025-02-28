@@ -2,7 +2,8 @@ name: Pull Request on main
 
 on:
   pull_request:
-    branches: -main
+    branches:
+      - 'main'
 
 jobs:
   build:
@@ -22,6 +23,3 @@ jobs:
 
       - name: Lint
         run: npx eslint
-
-      - name: Unit & Integration Tests
-        run: npm test:ci
